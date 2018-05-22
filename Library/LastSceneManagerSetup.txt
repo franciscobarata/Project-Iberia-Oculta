@@ -1,0 +1,7 @@
+sceneSetups:
+- path: Assets/IberiaOculta/Scenes/MarioPrototype.unity
+  isLoaded: 1
+  isActive: 1
+- path: Assets/IberiaOculta/Scenes/Prototype.unity
+  isLoaded: 0
+  isActive: 0
