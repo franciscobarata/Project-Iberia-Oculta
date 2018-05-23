@@ -34,11 +34,11 @@ public class BirdBehaviour : MonoBehaviour {
     void Update()
     {
         // Float up/down with a Sin()
-        tempPos.x = transform.position.x;
+        //tempPos.x = transform.position.x;
         tempPos.y = posOffset.y;
 
         tempPos.x += speed * Time.deltaTime * direction.x;
-        tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
+        //tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
 
         transform.position = tempPos;
     }

@@ -6,7 +6,7 @@ public class PlayerScript : MonoBehaviour
 
     public float speed;
     public Vector2 jumpHeight;
-    public bool facingRight;
+    public bool facingLeft;
     public bool touchingGround;
 
     public Animator anim;
@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour
     {
         jumpHeight = new Vector2(0, 5);
         speed = 5f;
-        facingRight = true;
+        facingLeft = false;
         touchingGround = true;
         anim = GetComponent<Animator>();
     }
@@ -24,7 +24,7 @@ public class PlayerScript : MonoBehaviour
     {
         Vector3 pos = transform.position;
 
-        if (Input.GetKey("w") && touchingGround)
+        if (Input.GetKey("space") && touchingGround)
         {
             GetComponent<Rigidbody2D>().AddForce(jumpHeight, ForceMode2D.Impulse);
             touchingGround = false;
@@ -36,19 +36,22 @@ public class PlayerScript : MonoBehaviour
         //}
         if (Input.GetKey("d"))
         {
-            if (!facingRight)
+            if (facingLeft)
                 Rotate();
-            anim.SetBool("PlayerWalk", true);
+
             pos.x += speed * Time.deltaTime;
+            anim.SetBool("PlayerWalk", true);
             
 
         }
         else if (Input.GetKey("a"))
         {
-            if (facingRight)
+            if (!facingLeft)
                 Rotate();
-            anim.SetBool("PlayerWalk", true);
+
             pos.x -= speed * Time.deltaTime;
+            anim.SetBool("PlayerWalk", true);
+            
             
         }
         else
@@ -56,17 +59,14 @@ public class PlayerScript : MonoBehaviour
             anim.SetBool("PlayerWalk", false);
         }
 
-
         transform.position = pos;
     }
 
 
     void Rotate()
     {
-        facingRight = !facingRight;
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        facingLeft = !facingLeft;
+        GetComponent<SpriteRenderer>().flipX = facingLeft;
     }
 
     private void LateUpdate()

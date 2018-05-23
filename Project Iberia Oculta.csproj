@@ -291,6 +291,7 @@
     <Compile Include="Assets\IberiaOculta\Scripts\PaleoDeity.cs" />
     <Compile Include="Assets\IberiaOculta\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\IberiaOculta\Scripts\SpikesText.cs" />
+    <Compile Include="Assets\IberiaOculta\Scripts\TriggerNewScene.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
